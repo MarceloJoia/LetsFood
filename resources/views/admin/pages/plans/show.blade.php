@@ -20,6 +20,9 @@
 
         <div class="card-body">
             <table class="table table-striped">
+
+                @include('admin.includes.alerts')
+
                 <tbody>
                     <tr>
                         <th>Nome:</th>

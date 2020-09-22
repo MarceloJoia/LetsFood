@@ -236,6 +236,16 @@ return [
             'url'  => 'admin/plans',
             'icon' => 'fas fa-globe-americas'
         ],
+        [
+            'text' => 'Perfis',
+            'url'  => 'admin/profiles',
+            'icon' => 'fas fa-users'
+        ],
+        [
+            'text' => 'Permissões',
+            'url'  => 'admin/permissions',
+            'icon' => 'fas fa-user-lock'
+        ],
     ],
 
     /*

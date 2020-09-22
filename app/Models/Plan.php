@@ -8,6 +8,16 @@ class Plan extends Model
 {
     protected $fillable = ['name','url','price','description'];
 
+
+    /**
+     * Relacionamento de 1 Plan para muitos Details
+     */
+    public function details()
+    {
+        return $this->hasMany(DetailPlan::class);
+    }
+
+
     /**
      * Method Search Plans
      */

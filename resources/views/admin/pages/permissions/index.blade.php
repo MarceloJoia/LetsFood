@@ -1,17 +1,17 @@
 @extends('adminlte::page')
 
-@section('title', 'Planos')
+@section('title', 'Permissões')
 
 @section('content_header')
     <div class="row">
         <div class="col-sm-9 form-group">
-            <h1>Planos</h1>
+            <h1>Permissões</h1>
         </div>
         <div class="col-sm-3 form-group">
-            <a href="{{ route('plans.create') }}" class="btn btn-success btn-block">Cadastrar Plano</a>
+            <a href="{{ route('permissions.create') }}" class="btn btn-success btn-block">Cadastrar Permissoes</a>
         </div>
         <div class="col- col-sm-6">
-            <form action="{{ route('plans.search') }}" method="post">
+            <form action="{{ route('permissions.search') }}" method="post">
                 @csrf
                 <div  class="form-inline">
                     <input type="text" name="filter" placeholder="Filtrar planos" value="{{ $filters['filter'] ?? '' }}" style="position: relative; margin-bottom: 0px; width: 236px;" class="form-control">
@@ -28,7 +28,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('admin.index')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('plans.index') }}" class="active">Planos</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('permissions.index') }}" class="active">Permissões</a></li>
                 </ol>
             </nav>
         </div>
@@ -38,18 +38,15 @@
                 <thead>
                     <tr>
                         <th>Nome</th>
-                        <th>Preço</th>
-                        <th width="120">Ação</th>
+                        <th width="70">Ação</th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($plans as $plan)
+                    @foreach ($permissions as $permission)
                         <tr>
-                            <td>{{ $plan->name }}</td>
-                            <td>R$ {{ number_format($plan->price, 2, ',', '.') }}</td>
+                            <td>{{ $permission->name }}</td>
                             <td>
-                                <a href="{{ route('plans.show', $plan->url) }}" class="btn btn-success" title="Visualizar {{ $plan->name }}" alt="Visualizar {{ $plan->name }}"><i class="fas fa-eye"></i></a>
-                                <a href="{{ route('plans.details.index', $plan->url) }}" class="btn btn-success" title="Visualizar deteles do {{ $plan->name }}" alt="Visualizar deteles do {{ $plan->name }}"><i class="fas fa-calendar-day"></i></a>
+                                <a href="{{ route('permissions.show', $permission->id) }}" class="btn btn-success" title="Visualizar {{ $permission->name }}" alt="Visualizar {{ $permission->name }}"><i class="fas fa-eye"></i></a>
                             </td>
                         </tr>
                     @endforeach
@@ -60,9 +57,9 @@
         <div class="card-footer">
 
             @if (isset($filters))
-                {!! $plans->appends($filters)->links() !!}
+                {!! $permissions->appends($filters)->links() !!}
             @else
-                {!! $plans->links() !!}
+                {!! $permissions->links() !!}
             @endif
 
             <p>Joia Marketing</p>
