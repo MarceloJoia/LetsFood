@@ -38,7 +38,7 @@
                 <thead>
                     <tr>
                         <th>Nome</th>
-                        <th width="70">Ação</th>
+                        <th width="120">Ação</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,6 +47,7 @@
                             <td>{{ $profile->name }}</td>
                             <td>
                                 <a href="{{ route('profiles.show', $profile->id) }}" class="btn btn-success" title="Visualizar {{ $profile->name }}" alt="Visualizar {{ $profile->name }}"><i class="fas fa-eye"></i></a>
+                                <a href="{{ route('profiles.permissions', $profile->id) }}" class="btn btn-info" title="Visualizar permissões do {{ $profile->name }}" alt="Visualizar permissões do {{ $profile->name }}"><i class="fas fa-user-lock"></i></a>
                             </td>
                         </tr>
                     @endforeach
