@@ -3,7 +3,20 @@
 use Illuminate\Support\Facades\Route;
 
 
-Route::prefix('admin')->namespace('Admin')->group(function(){
+Route::prefix('admin')
+            ->namespace('Admin')
+            ->middleware('auth')
+            ->group(function(){
+
+    /**
+     * Plans X Profiles
+     */
+    Route::get('plans/{id}/profiles/{idProfile}/detach', 'ACL\PlanProfileController@detachPlanProfile')->name('plans.profiles.detach');
+    Route::post('plans/{id}/profiles/store', 'ACL\PlanProfileController@attachPlanProfile')->name('plans.profiles.attach');
+    Route::any('plans/{id}/profiles/create', 'ACL\PlanProfileController@profilesAvailable')->name('plans.profiles.available');
+    Route::get('plans/{id}/profiles', 'ACL\PlanProfileController@profiles')->name('plans.profiles');
+    //plans profile
+    Route::get('profiles/{id}/plans', 'ACL\PlanProfileController@plans')->name('profiles.plans');
 
     /**
      * Permission Profiles
@@ -12,7 +25,6 @@ Route::prefix('admin')->namespace('Admin')->group(function(){
     Route::post('profiles/{id}/permissions/store', 'ACL\PermissionProfileController@attachPermissionProfile')->name('profiles.permissions.attach');
     Route::any('profiles/{id}/permissions/create', 'ACL\PermissionProfileController@permissionsAvailable')->name('profiles.permissions.available');
     Route::get('profiles/{id}/permissions', 'ACL\PermissionProfileController@permissions')->name('profiles.permissions');
-
     //Profiles Permission
     Route::get('permissions/{id}/profiles', 'ACL\PermissionProfileController@profiles')->name('permissions.profiles');
 
@@ -64,7 +76,14 @@ Route::prefix('admin')->namespace('Admin')->group(function(){
 });
 
 
+Route::get('/', 'Site\SiteController@index')->name('site.home');
 
-Route::get('/', function () {
-    return view('welcome');
-});
+/**
+ * Auth Routes
+ */
+Auth::routes();
+
+/**
+ * Abilita registro manual
+ */
+//Auth::routes(['register'=> false ]);

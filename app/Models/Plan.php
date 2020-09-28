@@ -17,6 +17,13 @@ class Plan extends Model
         return $this->hasMany(DetailPlan::class);
     }
 
+    /**
+     * Get Profile | Relacionamento de muitos para muitos Plans X Profiles
+     */
+    public function profiles()
+    {
+        return $this->belongsToMany(Profile::class);
+    }
 
     /**
      * Method Search Plans
@@ -27,5 +34,27 @@ class Plan extends Model
                         ->orWhere('description', 'LIKE', "%{$filter}%")
                         ->paginate(1);
         return $results;
+    }
+
+    /**
+     * Profiles not link with this Plan
+     */
+    public function profilesAvailable($filter = null)
+    {
+        $profiles = Profile::whereNotIn('profiles.id', function($query) {
+            $query->select('plan_profile.profile_id');
+            $query->from('plan_profile');
+            $query->whereRaw("plan_profile.plan_id={$this->id}");
+        })
+        ->where(function($queryFilter) use ($filter){
+            if ($filter) {
+                $queryFilter->where('profiles.name', 'LIKE', "%{$filter}%");
+            }
+        })
+        //->toSql();
+        //dd($profiles);
+        ->paginate();
+
+        return $profiles;
     }
 }

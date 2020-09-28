@@ -17,6 +17,14 @@ class Profile extends Model
     }
 
     /**
+     * Get Plans | Relacionamento de Muitos para muitos Profile X Plan
+     */
+    public function plans()
+    {
+        return $this->belongsToMany(Plan::class);
+    }
+
+    /**
      * Permission not link with this profile
      */
     public function permissionsAvailable($filter = null)
