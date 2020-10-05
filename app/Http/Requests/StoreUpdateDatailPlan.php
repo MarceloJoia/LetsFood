@@ -23,10 +23,8 @@ class StoreUpdateDatailPlan extends FormRequest
      */
     public function rules()
     {
-       $id = $this->segment(5);
-
         return [
-            'name' => "required|min:3|max:255|unique:details_plan,name,{$id},id",
+            'name' => "required|min:3|max:255",
         ];
     }
 

@@ -26,6 +26,14 @@ class Plan extends Model
     }
 
     /**
+     * Get Tenants this plan
+     */
+    public function tenants()
+    {
+        return $this->hasMany(Tenant::class);// Um para muitos
+    }
+
+    /**
      * Method Search Plans
      */
     public function search($filter = null)

@@ -76,7 +76,16 @@ Route::prefix('admin')
 });
 
 
-Route::get('/', 'Site\SiteController@index')->name('site.home');
+/**
+ * Site
+ */
+Route::namespace('Site')
+    ->group(function () {
+
+        Route::get('/plan/{url}', 'SiteController@plan')->name('plan.subscription');
+        Route::get('/', 'SiteController@index')->name('site.home');
+});
+
 
 /**
  * Auth Routes
