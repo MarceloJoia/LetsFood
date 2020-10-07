@@ -51,11 +51,11 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => ['required', 'string', 'min:3','max:255'],
-            'email' => ['required', 'string', 'email', 'min:3','max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8','max:16', 'confirmed'],
-            'empresa' => ['required', 'string', 'min:2', 'max:255', 'unique:users','unique:tenants, name'],
-            'cnpj' => ['required', 'numeric','min:14', 'max:18','unique:tenants','unique:tenants,cnpj',"regex:/^\d{2}\.\d{3}\.\d{3}\/\d{4}\-\d{2}$/"],
+            'name'      => ['required', 'string', 'min:3','max:255'],
+            'email'     => ['required', 'string', 'email', 'min:3','max:255', 'unique:users'],
+            'password'  => ['required', 'string', 'min:8','max:16', 'confirmed'],
+            'empresa'   => ['required', 'string', 'min:3', 'max:255', 'unique:tenants,name'],
+            'cnpj'      => ['required', 'numeric', 'min:14', 'unique:tenants'],
         ]);
     }
 
@@ -71,7 +71,7 @@ class RegisterController extends Controller
             return redirect()->route('site.home');
         }
 
-        // Criar objeto do TenantService
+        // Criar objeto do tenantservice
         $tenantService = app(TenantService::class);
         $user = $tenantService->make($plan, $data);// Isso retorna um user
 

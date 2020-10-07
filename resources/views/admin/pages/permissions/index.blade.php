@@ -47,7 +47,7 @@
                             <td>{{ $permission->name }}</td>
                             <td>
                                 <a href="{{ route('permissions.show', $permission->id) }}" class="btn btn-success" title="Visualizar {{ $permission->name }}" alt="Visualizar {{ $permission->name }}"><i class="fas fa-eye"></i></a>
-                                <a href="{{ route('permissions.profiles', $permission->id) }}" class="btn btn-info"><i class="fas fa-users"></i></a>
+                                <a href="{{ route('permissions.profiles', $permission->id) }}" class="btn btn-info"><i class="fas fa-id-card-alt"></i></a>
                             </td>
                         </tr>
                     @endforeach

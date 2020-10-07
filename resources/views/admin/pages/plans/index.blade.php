@@ -50,7 +50,7 @@
                             <td>
                                 <a href="{{ route('plans.show', $plan->url) }}" class="btn btn-success" title="Visualizar {{ $plan->name }}" alt="Visualizar {{ $plan->name }}"><i class="fas fa-eye"></i></a>
                                 <a href="{{ route('plans.details.index', $plan->url) }}" class="btn btn-success" title="Visualizar detalhes do {{ $plan->name }}" alt="Visualizar detalhes do {{ $plan->name }}"><i class="fas fa-calendar-day"></i></a>
-                                <a href="{{ route('plans.profiles', $plan->id) }}" class="btn btn-success" title="Visualizar deteles do {{ $plan->name }}" alt="Visualizar deteles do {{ $plan->name }}"><i class="fas fa-users"></i></a>
+                                <a href="{{ route('plans.profiles', $plan->id) }}" class="btn btn-success" title="Visualizar perfis {{ $plan->name }}" alt="Visualizar perfis {{ $plan->name }}"><i class="fas fa-id-card-alt"></i></a>
                             </td>
                         </tr>
                     @endforeach
