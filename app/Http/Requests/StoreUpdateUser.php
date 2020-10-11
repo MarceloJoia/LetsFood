@@ -25,10 +25,41 @@ class StoreUpdateUser extends FormRequest
     {
         $id = $this->segment(3);
 
-        return [
+        $rules = [
             'name' => ['required', 'string', 'min:3','max:255'],
-            'email' => ['required', 'string', 'email', 'min:3','max:255', "unique:users,email,{$id},id"],
+            'email' => ['required', 'string', 'email', 'min:10','max:255', "unique:users,email,{$id},id"],
             'password' => ['required', 'string', 'min:8','max:16', 'confirmed'],
+        ];
+
+        /**
+         *** dd($this->method());//recupera o Metodo ***
+         *
+         * Se está retornando o PUT é por que está editando
+         * Se estuver cadastrando retornaria POST
+         */
+        if ($this->method() == 'PUT'){
+            $rules ['password'] = ['nullable', 'string', 'min:8','max:16', 'confirmed'];
+        }
+
+        return $rules;
+    }
+
+    public function messages()
+    {
+        return [
+            'name.required' => 'O Usuário precisa de um Nome!',
+            'name.min' => 'O Nome do Usuário, precisa de 3 caracteres no ménimo.',
+            'name.max' => 'O Nome do Usuário pode ter 255 caracteres no máximo.',
+
+            'email.required' => 'Precisa colocar um email.',
+            'email.min' => 'O e-mail, não pode ter menos de 10 caracters.',
+            'email.min' => 'O e-mail, não pode ter mais que 255 caracters.',
+            'email.unique' => 'Esse e-mail já existe em nosso Banco de Dados! Use um e-mail diferente.',
+
+            'password.required' => 'Você precisa colocar uma senha.',
+            'password.min' => 'A senha deve ter pelo menos 8 caracteres.',
+            'password.max' => 'A senha não pode ter mais de 16 caracteres.',
+            'password.confirmed' => 'A senha não está semelhante.',
         ];
     }
 }

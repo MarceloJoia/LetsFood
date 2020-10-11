@@ -9,6 +9,12 @@ Route::prefix('admin')
             ->group(function(){
 
     /**
+     * Routes Categories
+     */
+    Route::any('categories/search', 'CategoryController@search')->name('categories.search');
+    Route::resource('categories', 'CategoryController');
+
+    /**
      * Routes Users
      */
     Route::any('users/search', 'UserController@search')->name('users.search');

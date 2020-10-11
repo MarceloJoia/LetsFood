@@ -23,7 +23,7 @@ class UserController extends Controller
      */
     public function index()
     {
-        if(!$users = $this->repository->latest()->paginate(10)){
+        if(!$users = $this->repository->latest()->tenantUser()->paginate(10)){
             return redirect()->back();
         }
 
@@ -52,6 +52,7 @@ class UserController extends Controller
     {
         $data = $request->all();
         $data['tenant_id'] = auth()->user()->tenant_id;
+        $data['password'] = bcrypt($data['password']);
 
         $this->repository->create($data);
 
@@ -66,7 +67,7 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        if(!$user = $this->repository->find($id)){
+        if(!$user = $this->repository->tenantUser()->find($id)){
             return redirect()->back();
         }
 
@@ -83,7 +84,7 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        if(!$user = $this->repository->find($id)){
+        if(!$user = $this->repository->tenantUser()->find($id)){
             return redirect()->back();
         }
 
@@ -99,14 +100,21 @@ class UserController extends Controller
      */
     public function update(StoreUpdateUser $request, $id)
     {
-        if(!$user = $this->repository->find($id)){
+        if(!$user = $this->repository->tenantUser()->find($id)){
             return redirect()->back();
         }
 
-        $user->update($request->all());
+        $data = $request->only(['name', 'email']);
+
+        if ($request->password) {
+            $data['password'] = bcrypt($request->password);
+        }
+
+        $user->update($data);
 
         return redirect()->route('users.show', $user->id);
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -116,7 +124,7 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        if(!$user = $this->repository->find($id)){
+        if(!$user = $this->repository->tenantUser()->find($id)){
             return redirect()->back();
         }
 
@@ -137,7 +145,10 @@ class UserController extends Controller
                 $query->orWhere('name', 'LIKE', "%{$request->filter}%");
                 $query->orWhere('email', $request->filter);
             }
-        })->paginate();
+        })
+        ->latest()
+        ->tenantUser()
+        ->paginate();
 
         return view('admin.pages.users.index', [
             'users' => $users,
