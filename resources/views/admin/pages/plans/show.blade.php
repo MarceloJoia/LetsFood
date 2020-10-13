@@ -60,7 +60,7 @@
                     </form>
                 </div>
                 <div class="col-12">
-                    <h4>Joia Marketing</h4>
+                    @include('admin.includes.copyright')
                 </div>
             </div>
         </div>

@@ -29,7 +29,7 @@
         <div class="card-footer">
 
             <div class="col-sm-12">
-                <p>Joia Marketing</p>
+                @include('admin.includes.copyright')
             </div>
 
         </div>

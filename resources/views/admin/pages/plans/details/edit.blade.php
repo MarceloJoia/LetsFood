@@ -35,7 +35,7 @@
         </div>
 
         <div class="card-footer">
-            <p>Joia Marketing</p>
+            @include('admin.includes.copyright')
         </div>
     </div>
 @stop

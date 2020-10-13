@@ -12,7 +12,7 @@
         <div class="col-sm-3 form-group">
             <a href="{{ route('profiles.permissions.available', $profile->id) }}" class="btn btn-success btn-block">Add Permissão</a>
         </div>
-        
+
     </div>
 @stop
 
@@ -61,7 +61,7 @@
                 {!! $permissions->links() !!}
             @endif
 
-            <p>Joia Marketing</p>
+            @include('admin.includes.copyright')
         </div>
     </div>
 @stop

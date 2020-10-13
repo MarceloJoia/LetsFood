@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', "Editar {$user->name}")
+@section('title', "Editar {$category->name}")
 
 @section('content_header')
-    <h1>Editar {{ $user->name }}</h1>
+    <h1>Editar {{ $category->name }}</h1>
 @stop
 
 @section('content')
@@ -12,22 +12,22 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('users.index') }}">Usuários</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('categories.index') }}">Categorias</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('categories.show', $category->id) }}">{{ $category->name }}</a></li>
                 </ol>
             </nav>
         </div>
 
         <div class="card-body">
-            <form action="{{ route('users.update', $user->id) }}" method="post">
+            <form action="{{ route('categories.update', $category->id) }}" method="post">
 
                 @method('PUT')
 
-                @include('admin.pages.users._partials.form')
+                @include('admin.pages.categories._partials.form')
 
                 <div class="row">
                     <div class="col-sm-6 col-md-3 col-lg-4 col-xl-2 form-group">
-                        <a href="{{ route('users.show', $user->id) }}" class="btn btn-success btn-block"><i class="fas fa-undo-alt"></i> Voltar</a>
+                        <a href="{{ route('categories.show', $category->id) }}" class="btn btn-success btn-block"><i class="fas fa-undo-alt"></i> Voltar</a>
                     </div>
                     <div class="col-sm-6 col-md-3 col-lg-4 col-xl-2 form-group">
                         <button type="submit" class="btn btn-primary btn-block"><i class="far fa-share-square"></i> Enviar</button>
@@ -37,7 +37,7 @@
         </div>
 
         <div class="card-footer">
-            <p>Joia Marketing</p>
+            @include('admin.includes.copyright')
         </div>
     </div>
 @stop

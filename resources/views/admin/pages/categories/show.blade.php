@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', "Detalhes do usuário {$user->name}")
+@section('title', "Detalhes da Categoria {$category->name}")
 
 @section('content_header')
-    <h1>{{ $user->name }}</h1>
+    <h1>{{ $category->name }}</h1>
 @stop
 
 @section('content')
@@ -12,8 +12,8 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-                    <li class="breadcrumb-item "><a href="{{ route('users.index') }}">Usuários</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('users.show', $user->id) }}">{{ $user->name }}</a></li>
+                    <li class="breadcrumb-item "><a href="{{ route('categories.index') }}">Categorias</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('categories.show', $category->id) }}">{{ $category->name }}</a></li>
                 </ol>
             </nav>
         </div>
@@ -26,15 +26,15 @@
                 <tbody>
                     <tr>
                         <th>Nome:</th>
-                        <td>{{ $user->name }}</td>
+                        <td>{{ $category->name }}</td>
                     </tr>
                     <tr>
-                        <th>E-mail</th>
-                        <td>{{ $user->email }}</td>
+                        <th>URL</th>
+                        <td>{{ $category->url }}</td>
                     </tr>
                     <tr>
-                        <th>Empresa:</th>
-                        <td>{{ $user->tenant->name }}</td>
+                        <th>Descrição:</th>
+                        <td>{{ $category->description }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -43,17 +43,17 @@
         <div class="card-footer">
             <div class="row">
                 <div class="ccol-sm-6 col-md-3 col-lg-4 col-xl-2 form-group">
-                    <a href="{{ route('users.index') }}" class="btn btn-success btn-block"><i class="fas fa-undo-alt"></i> Voltar</a>
+                    <a href="{{ route('categories.index') }}" class="btn btn-success btn-block"><i class="fas fa-undo-alt"></i> Voltar</a>
                 </div>
 
                 {{-- Editar usuário --}}
                 <div class="ccol-sm-6 col-md-3 col-lg-4 col-xl-2 form-group">
-                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary btn-block"><i class="fas fa-edit"></i> Editar</a>
+                    <a href="{{ route('categories.edit', $category->id) }}" class="btn btn-primary btn-block"><i class="fas fa-edit"></i> Editar</a>
                 </div>
 
                 {{-- Deletar usuário --}}
                 <div class="ccol-sm-6 col-md-3 col-lg-4 col-xl-2 form-group">
-                    <form action="{{ route('users.destroy', $user->id) }}" method="post">
+                    <form action="{{ route('categories.destroy', $category->id) }}" method="post">
                         @method('DELETE')
                         @csrf
                         <button type="submit" class="btn btn-danger form-control"><i class="fas fa-trash-alt"></i> Deletar</button>
@@ -61,7 +61,7 @@
                 </div>
 
                 <div class="col-12">
-                    <h4>Joia Marketing</h4>
+                    @include('admin.includes.copyright')
                 </div>
             </div>
         </div>
