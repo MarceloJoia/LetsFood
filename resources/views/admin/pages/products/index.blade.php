@@ -40,7 +40,7 @@
                         <th>Imagem</th>
                         <th>Título</th>
                         <th>Preço</th>
-                        <th width="70">Ação</th>
+                        <th width="120">Ação</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -56,7 +56,8 @@
                                 {{ $product->price }}
                             </td>
                             <td>
-                                <a href="{{ route('products.show', $product->id) }}" class="btn btn-success" title="Visualizar {{ $product->name }}" alt="Visualizar {{ $product->name }}"><i class="fas fa-eye"></i></a>
+                                <a href="{{ route('products.categories', $product->id) }}" title="Categorias"  alt="Categorias"  class="btn btn-warning"><i class="fas fa-layer-group"></i></a>
+                                <a href="{{ route('products.show', $product->id) }}" class="btn btn-success" title="Visualizar {{ $product->title }}" alt="Visualizar {{ $product->title }}"><i class="fas fa-eye"></i></a>
                             </td>
                         </tr>
                     @endforeach
