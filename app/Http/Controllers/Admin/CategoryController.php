@@ -117,4 +117,26 @@ class CategoryController extends Controller
 
         return redirect()->route('categories.index');
     }
+
+    /**
+     * Seacrh categories $categories
+     */
+    public function search(Request $request)
+    {
+        $filters = $request->only('filter');
+
+        $categories = $this->repository->where( function($query) use($request) {
+            if($request->filter){
+                $query->orWhere('description', 'LIKE', "%{$request->filter}%");
+                $query->orWhere('name', $request->filter);
+            }
+        })
+        ->latest()
+        ->paginate();
+
+        return view('admin.pages.categories.index', [
+            'categories' => $categories,
+            'filters'  => $filters,
+        ]);
+    }
 }
