@@ -261,6 +261,11 @@ return [
             'url'  => 'admin/products',
             'icon' => 'fas fa-utensils',
         ],
+        [
+            'text' => 'Mesas',
+            'url'  => 'admin/tables',
+            'icon' => 'fas fa-dice-d6',
+        ],
     ],
 
     /*
