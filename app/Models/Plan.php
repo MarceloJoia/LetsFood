@@ -8,7 +8,6 @@ class Plan extends Model
 {
     protected $fillable = ['name','url','price','description'];
 
-
     /**
      * Relacionamento de 1 Plan para muitos Details
      */

@@ -8,6 +8,21 @@ Route::prefix('admin')
             ->middleware('auth')
             ->group(function() {
 
+
+    /**
+     * Routes Profiles
+     */
+    Route::any('roles/search', 'ACL\RoleController@search')->name('roles.search');
+    Route::resource('roles', 'ACL\RoleController');
+
+
+    /**
+     * Routes Tables
+     */
+    Route::any('tenants/search', 'TenantController@search')->name('tenants.search');
+    Route::resource('tenants', 'TenantController');
+
+
     /**
      * Routes Tables
      */
@@ -83,7 +98,7 @@ Route::prefix('admin')
     Route::resource('profiles', 'ACL\ProfileController');
 
     /**
-     * Plans Routes
+     * Plans Details Routes
      */
     Route::delete('plans/{url}/details/{idDetail}/destroy', 'DetailPlanController@destroy')->name('plans.details.destroy');
     Route::put('plans/{url}/details/{idDetail}/update', 'DetailPlanController@update')->name('plans.details.update');

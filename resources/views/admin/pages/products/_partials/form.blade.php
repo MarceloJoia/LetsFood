@@ -19,5 +19,5 @@
 
 <div class="form-group">
     <label for="description">* Descrição</label>
-    <textarea name="description" id="description" class="form-control" placeholder="* Fale um pouco sobre a categoria" cols="30" rows="6">{{ $product->description ?? old('name') }}</textarea>
+    <textarea name="description" id="description" class="form-control" placeholder="* Fale um pouco sobre a categoria" cols="30" rows="6">{{ $product->description ?? old('description') }}</textarea>
 </div>

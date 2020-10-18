@@ -23,6 +23,6 @@ class Tenant extends Model
      */
     public function plan()
     {
-        return $this->belongsTo(Tenant::class); //Retorna o plano que esse Tenant está cadastrado.
+        return $this->belongsTo(Plan::class); //Retorna o plano que esse Tenant está cadastrado.
     }
 }

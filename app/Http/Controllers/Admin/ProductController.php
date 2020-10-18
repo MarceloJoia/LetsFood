@@ -10,12 +10,14 @@ use Illuminate\Support\Facades\Storage;
 
 class productController extends Controller
 {
-    private $repository;
+private $repository;
 
-    public function __construct(product $product)
-    {
-        $this->repository = $product;
-    }
+public function __construct(product $product)
+{
+    $this->repository = $product;
+
+    $this->middleware(['can:products']);
+}
 
     /**
      * Display a listing of the resource.
