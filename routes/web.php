@@ -10,7 +10,7 @@ Route::prefix('admin')
 
 
     /**
-     * Routes Profiles
+     * Routes Papeis
      */
     Route::any('roles/search', 'ACL\RoleController@search')->name('roles.search');
     Route::resource('roles', 'ACL\RoleController');

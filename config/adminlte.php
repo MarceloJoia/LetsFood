@@ -251,6 +251,13 @@ return [
 
         ],
         [
+            'text' => 'Cargos',
+            'url'  => 'admin/roles',
+            'icon' => 'fas fa-user-tag',
+            'can'  => 'roles',
+
+        ],
+        [
             'text' => 'Permissões',
             'url'  => 'admin/permissions',
             'icon' => 'fas fa-lock',
