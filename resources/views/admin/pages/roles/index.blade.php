@@ -38,7 +38,7 @@
                 <thead>
                     <tr>
                         <th>Nome</th>
-                        <th width="70">Ação</th>
+                        <th width="120">Ação</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,9 +47,9 @@
                             <td>{{ $role->name }}</td>
                             <td>
                                 <a href="{{ route('roles.show', $role->id) }}" class="btn btn-success" title="Visualizar {{ $role->name }}" alt="Visualizar {{ $role->name }}"><i class="fas fa-eye"></i></a>
-                                {{--
+
                                 <a href="{{ route('roles.permissions', $role->id) }}" class="btn btn-info" title="Visualizar permissões do {{ $role->name }}" alt="Visualizar permissões do {{ $role->name }}"><i class="fas fa-user-lock"></i></a>
-                                <a href="{{ route('roles.plans', $role->id) }}" class="btn btn-info" title="Planos ligados a esse Perfil" alt="Planos ligados a esse Perfil"><i class="fas fa-globe-americas"></i></a>
+                                {{--<a href="{{ route('roles.plans', $role->id) }}" class="btn btn-info" title="Planos ligados a esse Perfil" alt="Planos ligados a esse Perfil"><i class="fas fa-globe-americas"></i></a>
                                  --}}
                             </td>
                         </tr>

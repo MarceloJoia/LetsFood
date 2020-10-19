@@ -1,16 +1,16 @@
 @extends('adminlte::page')
 
-@section('title', "Permissão disponíveis para o Perfil {$profile->name}")
+@section('title', "Adicionar permissão ao Cargo {$role->name}")
 
 @section('content_header')
 
     <div class="row">
         <div class="col-sm-9 form-group">
-            <h1>Permissão disponíveis <strong>{{ $profile->name }}</strong></h1>
+            <h1>Adicionar permissão ao Cargo <strong>{{ $role->name }}</strong></h1>
         </div>
 
         <div class="col- col-sm-6">
-            <form action="{{ route('profiles.permissions.available', $profile->id) }}" method="post">
+            <form action="{{ route('roles.permissions.available', $role->id) }}" method="post">
                 @csrf
                 <div  class="form-inline">
                     <input type="text" name="filter" placeholder="Filtrar planos" value="{{ $filters['filter'] ?? old('filter') }}" style="position: relative; margin-bottom: 0px; width: 236px;" class="form-control">
@@ -29,9 +29,9 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('admin.index')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('profiles.index') }}">Perfis</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('profiles.index') }}">{{ $profile->name }}</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('profiles.permissions', $profile->id) }}" class="active">Permissões</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('roles.index') }}">Cargos</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('roles.index') }}">{{ $role->name }}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('roles.permissions', $role->id) }}" class="active">Permissões</a></li>
                 </ol>
             </nav>
         </div>
@@ -47,7 +47,7 @@
                 </thead>
 
                 <tbody>
-                   <form action="{{ route('profiles.permissions.attach', $profile->id) }}" method="POST" class="form-group">
+                   <form action="{{ route('roles.permissions.attach', $role->id) }}" method="POST" class="form-group">
                         @include('admin.includes.alerts')
                         @csrf
                         @foreach ($permissions as $permission)

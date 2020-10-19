@@ -10,6 +10,16 @@ Route::prefix('admin')
 
 
     /**
+     * Permission Role
+     */
+    Route::get('roles/{id}/permission/{idPermission}/detach', 'ACL\PermissionRoleController@detachPermissionRole')->name('roles.permission.detach');
+    Route::post('roles/{id}/permissions/store', 'ACL\PermissionRoleController@attachPermissionRole')->name('roles.permissions.attach');
+    Route::any('roles/{id}/permissions/create', 'ACL\PermissionRoleController@permissionsAvailable')->name('roles.permissions.available');
+    Route::get('roles/{id}/permissions', 'ACL\PermissionRoleController@permissions')->name('roles.permissions');
+    Route::get('permissions/{id}/role', 'ACL\PermissionRoleController@roles')->name('permissions.roles');
+
+
+    /**
      * Routes Papeis
      */
     Route::any('roles/search', 'ACL\RoleController@search')->name('roles.search');

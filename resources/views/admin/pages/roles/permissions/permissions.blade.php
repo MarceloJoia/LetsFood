@@ -1,16 +1,16 @@
 @extends('adminlte::page')
 
-@section('title', "Permissãoes do Perfil {$profile->name}")
+@section('title', "Permissãoes do cargo {$role->name}")
 
 @section('content_header')
     <div class="row">
 
         <div class="col-sm-9 form-group">
-            <h1>Permissãoes do Perfil <strong>{{ $profile->name }}</strong></h1>
+            <h1>Permissãoes do cargo <strong>{{ $role->name }}</strong></h1>
         </div>
 
         <div class="col-sm-3 form-group">
-            <a href="{{ route('profiles.permissions.available', $profile->id) }}" class="btn btn-success btn-block">Add Permissão</a>
+            <a href="{{ route('roles.permissions.available', $role->id) }}" class="btn btn-success btn-block">Add Permissão</a>
         </div>
 
     </div>
@@ -22,9 +22,9 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('admin.index')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('profiles.index') }}">Perfis</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('profiles.index') }}">{{ $profile->name }}</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('profiles.permissions', $profile->id) }}" class="active">Permissões</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('roles.index') }}">Cargos</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('roles.index') }}">{{ $role->name }}</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('roles.permissions', $role->id) }}" class="active">Permissões</a></li>
                 </ol>
             </nav>
         </div>
@@ -44,7 +44,7 @@
                         <tr>
                             <td>{{ $permission->name }}</td>
                             <td>
-                                <a href="{{ route('profiles.permission.detach', [$profile->id, $permission->id]) }}" class="btn btn-danger" title="Desvincular permissão {{ $permission->name }} do perfil {{ $profile->name }}"><i class="fas fa-unlink"></i></a>
+                                <a href="{{ route('roles.permission.detach', [$role->id, $permission->id]) }}" class="btn btn-danger" title="Desvincular permissão {{ $permission->name }} do perfil {{ $role->name }}"><i class="fas fa-unlink"></i></a>
                             </td>
                         </tr>
                     @endforeach
