@@ -8,7 +8,7 @@
             <h1>Usuários</h1>
         </div>
         <div class="col-sm-3 form-group">
-            <a href="{{ route('users.create') }}" class="btn btn-success btn-block">Cadastrar Usuário</a>
+            <a href="{{ route('users.create') }}" class="btn btn-success btn-block" title="Cadastrar novo usuário" alt="Cadastrar novo usuário">Cadastrar Usuário</a>
         </div>
         <div class="col- col-sm-6">
             <form action="{{ route('users.search') }}" method="post">
@@ -39,7 +39,7 @@
                     <tr>
                         <th>Nome</th>
                         <th>E-mail</th>
-                        <th width="70">Ação</th>
+                        <th width="120">Ação</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -52,9 +52,9 @@
                                 {{ $user->email }}
                             </td>
                             <td>
-                                <a href="{{ route('users.show', $user->id) }}" class="btn btn-success" title="Visualizar {{ $user->name }}" alt="Visualizar {{ $user->name }}"><i class="fas fa-eye"></i></a>
-                                {{-- <a href="{{ route('users.details.index', $user->url) }}" class="btn btn-success" title="Visualizar detalhes do {{ $user->name }}" alt="Visualizar detalhes do {{ $user->name }}"><i class="fas fa-calendar-day"></i></a>
-                                <a href="{{ route('users.profiles', $user->id) }}" class="btn btn-success" title="Visualizar perfis {{ $user->name }}" alt="Visualizar perfis {{ $user->name }}"><i class="fas fa-id-card-alt"></i></a> --}}
+                                <a href="{{ route('users.show', $user->id) }}" class="btn btn-success" title="Detalhes do usuário {{ $user->name }}" alt="Detalhes do usuário {{ $user->name }}"><i class="fas fa-eye"></i></a>
+                                <a href="{{ route('users.roles', $user->id) }}" class="btn btn-success" title="Ver o cargo do usuário {{ $user->name }}" alt="Ver o cargo do usuário {{ $user->name }}"><i class="fas fa-user-tag"></i></a>
+                                {{-- <a href="{{ route('users.profiles', $user->id) }}" class="btn btn-success" title="Visualizar perfis {{ $user->name }}" alt="Visualizar perfis {{ $user->name }}"><i class="fas fa-id-card-alt"></i></a> --}}
                             </td>
                         </tr>
                     @endforeach

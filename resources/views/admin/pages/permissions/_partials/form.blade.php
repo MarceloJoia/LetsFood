@@ -11,9 +11,9 @@
 
 <div class="row">
     <div class=" col-sm-3 form-group">
-        <a href="{{ route('permissions.index') }}" class="btn btn-success form-control">Voltar</a>
+        <a href="{{ route('permissions.index') }}" class="btn btn-success form-control" title="Voltar para as permissões" alt="Voltar para as permissões"><i class="fas fa-undo-alt"></i> Voltar</a>
     </div>
     <div class=" col-sm-3 form-group">
-        <button type="submit" class="btn btn-primary form-control">Enviar</button>
+        <button type="submit" class="btn btn-primary form-control" title="Enviar aterações" alt="Enviar aterações"><i class="fas fa-share-square"></i> Enviar</button>
     </div>
 </div>

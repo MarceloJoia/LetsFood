@@ -43,12 +43,12 @@
         <div class="card-footer">
             <div class="row">
                 <div class="ccol-sm-6 col-md-3 col-lg-4 col-xl-2 form-group">
-                    <a href="{{ route('users.index') }}" class="btn btn-success btn-block"><i class="fas fa-undo-alt"></i> Voltar</a>
+                    <a href="{{ route('users.index') }}" class="btn btn-success btn-block" title="Retornar para usuários" alt="Retornar para usuários"><i class="fas fa-undo-alt"></i> Voltar</a>
                 </div>
 
                 {{-- Editar usuário --}}
                 <div class="ccol-sm-6 col-md-3 col-lg-4 col-xl-2 form-group">
-                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary btn-block"><i class="fas fa-edit"></i> Editar</a>
+                    <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary btn-block" title="Editar usuário" alt="Editar usuário"><i class="fas fa-edit"></i> Editar</a>
                 </div>
 
                 {{-- Deletar usuário --}}
@@ -56,7 +56,7 @@
                     <form action="{{ route('users.destroy', $user->id) }}" method="post">
                         @method('DELETE')
                         @csrf
-                        <button type="submit" class="btn btn-danger form-control"><i class="fas fa-trash-alt"></i> Deletar</button>
+                        <button type="submit" class="btn btn-danger form-control" title="Deletar usuário" alt="Deletar usuário"><i class="fas fa-trash-alt"></i> Deletar</button>
                     </form>
                 </div>
 

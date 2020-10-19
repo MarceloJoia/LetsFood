@@ -22,7 +22,7 @@
             <table class="table table-striped">
                 <tbody>
                     <tr>
-                        <th>Nome:</th>
+                        <th width="200">Nome:</th>
                         <td>{{ $permission->name }}</td>
                     </tr>
                     <tr>
@@ -37,18 +37,18 @@
             <div class="row">
 
                 <div class=" col-sm-3 form-group">
-                    <a href="{{ route('permissions.index') }}" class="btn btn-success form-control">Voltar</a>
+                    <a href="{{ route('permissions.index') }}" class="btn btn-success form-control" title="Voltar as permissões" alt="Voltar as permissões"><i class="fas fa-undo-alt"></i> Voltar</a>
                 </div>
 
                 <div class=" col-sm-3 form-group">
-                    <a href="{{ route('permissions.edit', $permission->id) }}" class="btn btn-primary form-control">Editar</a>
+                    <a href="{{ route('permissions.edit', $permission->id) }}" class="btn btn-primary form-control" title="Editar a permissões {{ $permission->name }}" alt="Editar a permissões {{ $permission->name }}"><i class="fas fa-edit"></i> Editar</a>
                 </div>
 
                 <div class=" col-sm-3 form-group">
                     <form action="{{ route('permissions.destroy', $permission->id) }}" method="POST" class="form">
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="btn btn-danger form-control">Deletar</button>
+                        <button type="submit" class="btn btn-danger form-control" title="Deletar a permissões {{ $permission->name }}" alt="Deletar a permissões {{ $permission->name }}"><i class="fas fa-trash-alt"></i> Deletar</button>
                     </form>
                 </div>
 

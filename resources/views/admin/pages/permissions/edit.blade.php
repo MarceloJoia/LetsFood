@@ -21,8 +21,11 @@
 
         <div class="card-body">
             <form action="{{ route('permissions.update', $permission->id) }}" method="post">
+
                 @method('PUT')
+
                 @include('admin.pages.permissions._partials.form')
+
             </form>
         </div>
 

@@ -29,10 +29,10 @@
 
                 <div class="row">
                     <div class="col-sm-6 col-md-3 col-lg-4 col-xl-2 form-group">
-                        <a href="{{ route('users.index') }}" class="btn btn-success btn-block"><i class="fas fa-undo-alt"></i> Voltar</a>
+                        <a href="{{ route('users.index') }}" class="btn btn-success btn-block" title="Voltar para usuários" alt="Voltar para usuários"><i class="fas fa-undo-alt"></i> Voltar</a>
                     </div>
                     <div class="col-sm-6 col-md-3 col-lg-4 col-xl-2 form-group">
-                        <button type="submit" class="btn btn-primary btn-block"><i class="far fa-share-square"></i> Enviar</button>
+                        <button type="submit" class="btn btn-primary btn-block" title="Cadastrar novo usuário" alt="Cadastrar novo usuário"><i class="far fa-share-square"></i> Enviar</button>
                     </div>
                 </div>
             </form>

@@ -57,7 +57,7 @@
                             </td>
                             <td>
                                 {{-- <a href="{{ route('tenants.categories', $tenant->id) }}" title="Categorias"  alt="Categorias"  class="btn btn-warning"><i class="fas fa-layer-group"></i></a> --}}
-                                <a href="{{ route('tenants.show', $tenant->id) }}" class="btn btn-success" title="Visualizar {{ $tenant->name }}" alt="Visualizar {{ $tenant->name }}"><i class="fas fa-eye"></i></a>
+                                <a href="{{ route('tenants.show', $tenant->id) }}" class="btn btn-success" title="Detalhes da empresa {{ $tenant->name }}" alt="Detalhes da empresa {{ $tenant->name }}"><i class="fas fa-eye"></i></a>
                             </td>
                         </tr>
                     @endforeach
