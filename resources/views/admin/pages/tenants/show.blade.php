@@ -26,7 +26,13 @@
                 <tbody>
                     <tr>
                         <th>Imagem</th>
-                        <td><img src="{{ url("storage/{$tenant->logo}") }}" alt="{{ $tenant->name }}" style="max-width:300px;"></td>
+                        <td>
+                            @if ($tenant->logo)
+                                <img src="{{ url("storage/{$tenant->logo}") }}" alt="{{ $tenant->name }}" style="max-width:200px;">
+                            @else
+                                <img src="{{ url("storage/tenants/seu-logo-aqui.jpg") }}" alt="Logo da empresa" style="max-width:200px;">
+                            @endif
+                        </td>
                     </tr>
                     <tr>
                         <th width="200">Plano</th>
