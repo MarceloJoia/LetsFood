@@ -7,11 +7,12 @@ use App\Repositories\Contracts\TenantRepositoryInterface;
 
 class CategoryService
 {
-    protected $tenantRepository, $categoryRepository;
-    public function __construct(TenantRepositoryInterface $tenantRepository, CategoryRepositoryInterface $categoryRepository)
+    protected $categoryRepository, $tenantRepository;
+
+    public function __construct(CategoryRepositoryInterface $categoryRepository, TenantRepositoryInterface $tenantRepository)
     {
-        $this->tenantRepository = $tenantRepository;
         $this->categoryRepository = $categoryRepository;
+        $this->tenantRepository = $tenantRepository;
     }
 
     public function getCategoryByUuid(string $uuid)
@@ -19,5 +20,13 @@ class CategoryService
         $tenant = $this->tenantRepository->getTenantByUuid($uuid);
 
         return $this->categoryRepository->getCategoriesByTenantId($tenant->id);
+    }
+
+    /**
+     * Get Category by URL
+     */
+    public function getCategoryByUrl(string $url)
+    {
+        return $this->categoryRepository->getCategoryByUrl($url);
     }
 }

@@ -4,25 +4,25 @@ namespace App\Repositories;
 
 use Illuminate\Support\Facades\DB;
 
-class CategoryRepository
+class TableRepository
 {
     protected $table;
 
     public function __construct()
     {
-        $this->table = 'categories';
+        $this->table = 'tables';
     }
 
-    public function getCategoriesByTenantUuid(string $uuid)
+    public function getTablesByTenantUuid(string $uuid)
     {
         return DB::table($this->table)
-                ->join('tenants','tenants.id', '=', 'categories.tenant_id')
+                ->join('tenants','tenants.id', '=', 'tables.tenant_id')
                 ->where('tenants.uuid', $uuid)
-                ->select('categories.*')
+                ->select('tables.*')
                 ->get();
     }
 
-    public function getCategoriesByTenantId(int $idTenant)
+    public function getTablesByTenantId(int $idTenant)
     {
         return DB::table($this->table)
                     ->where('tenant_id', $idTenant)
@@ -30,12 +30,12 @@ class CategoryRepository
     }
 
     /**
-     * Get Category by URL
+     * Get Table by Identity
      */
-    public function getCategoryByUrl(string $url)
+    public function getTableByIdentify(string $identify)
     {
         return DB::table($this->table)
-                    ->where('url', $url)
+                    ->where('identify', $identify)
                     ->first();
     }
 }

@@ -46,9 +46,9 @@
                         <tr>
                             <td>{{ $profile->name }}</td>
                             <td>
-                                <a href="{{ route('profiles.show', $profile->id) }}" class="btn btn-success" title="Visualizar {{ $profile->name }}" alt="Visualizar {{ $profile->name }}"><i class="fas fa-eye"></i></a>
-                                <a href="{{ route('profiles.permissions', $profile->id) }}" class="btn btn-info" title="Visualizar permissões do {{ $profile->name }}" alt="Visualizar permissões do {{ $profile->name }}"><i class="fas fa-user-lock"></i></a>
-                                <a href="{{ route('profiles.plans', $profile->id) }}" class="btn btn-info" title="Planos ligados a esse Perfil" alt="Planos ligados a esse Perfil"><i class="fas fa-globe-americas"></i></a>
+                                <a href="{{ route('profiles.show', $profile->id) }}" class="btn btn-success" title="Ver os detalhes do Perfil {{ $profile->name }}" alt="Ver os detalhes do Perfil {{ $profile->name }}"><i class="fas fa-eye"></i></a>
+                                <a href="{{ route('profiles.permissions', $profile->id) }}" class="btn btn-info" title="Ver permissões do {{ $profile->name }}" alt="Ver permissões do {{ $profile->name }}"><i class="fas fa-user-lock"></i></a>
+                                <a href="{{ route('profiles.plans', $profile->id) }}" class="btn btn-info" title="Planos ligados ao Perfil {{ $profile->name }}" alt="Planos ligados ao Perfil {{ $profile->name }}"><i class="fas fa-globe-americas"></i></a>
                             </td>
                         </tr>
                     @endforeach

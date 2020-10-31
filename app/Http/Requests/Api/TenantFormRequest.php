@@ -1,0 +1,40 @@
+<?php
+
+namespace App\Http\Requests\Api;
+
+use Illuminate\Foundation\Http\FormRequest;
+
+class TenantFormRequest extends FormRequest
+{
+    /**
+     * Determine if the user is authorized to make this request.
+     *
+     * @return bool
+     */
+    public function authorize()
+    {
+        return true;
+    }
+
+    /**
+     * Get the validation rules that apply to the request.
+     *
+     * @return array
+     */
+    public function rules()
+    {
+        return [
+            'token_company' => [
+                'required',
+                'exists:tenants,uuid',//Valida se esse valor existe na tabela de Tenant UUID
+            ],
+        ];
+    }
+    public function messages()
+    {
+        return [
+            'token_company.required' => 'Não foi informado um Token.',
+            'token_company.exists' => 'Essa Empresa não existe em nosso sistema.',
+        ];
+    }
+}

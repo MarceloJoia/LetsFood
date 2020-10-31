@@ -10,7 +10,7 @@
         </div>
 
         <div class="col-sm-3 form-group">
-            <a href="{{ route('products.categories.available', $product->id) }}" class="btn btn-success btn-block">Add Novo Perfil</a>
+            <a href="{{ route('products.categories.available', $product->id) }}" class="btn btn-success btn-block">Add Categorias</a>
         </div>
 
     </div>
