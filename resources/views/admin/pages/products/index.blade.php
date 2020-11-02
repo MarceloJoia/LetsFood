@@ -56,7 +56,7 @@
                                 {{ $product->price }}
                             </td>
                             <td>
-                                <a href="{{ route('products.categories', $product->id) }}" title="Categorias"  alt="Categorias"  class="btn btn-warning"><i class="fas fa-layer-group"></i></a>
+                                <a href="{{ route('products.categories.available', $product->id) }}" title="Categorias"  alt="Categorias"  class="btn btn-warning"><i class="fas fa-layer-group"></i></a>
                                 <a href="{{ route('products.show', $product->id) }}" class="btn btn-success" title="Visualizar {{ $product->title }}" alt="Visualizar {{ $product->title }}"><i class="fas fa-eye"></i></a>
                             </td>
                         </tr>

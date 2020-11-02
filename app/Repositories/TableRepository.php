@@ -2,9 +2,10 @@
 
 namespace App\Repositories;
 
+use App\Repositories\Contracts\TableRepositoryInterface;
 use Illuminate\Support\Facades\DB;
 
-class TableRepository
+class TableRepository implements TableRepositoryInterface
 {
     protected $table;
 

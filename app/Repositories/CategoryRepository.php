@@ -2,9 +2,12 @@
 
 namespace App\Repositories;
 
+//use App\Repositories\Contracts\
+
+use App\Repositories\Contracts\CategoryRepositoryInterface;
 use Illuminate\Support\Facades\DB;
 
-class CategoryRepository
+class CategoryRepository implements CategoryRepositoryInterface
 {
     protected $table;
 

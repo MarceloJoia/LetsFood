@@ -42,7 +42,7 @@
                 <thead>
                     <tr>
                         <th width="50">#</th>
-                        <th>Tipo de permissão</th>
+                        <th>Escolha as categorias e click em Vincular</th>
                     </tr>
                 </thead>
 

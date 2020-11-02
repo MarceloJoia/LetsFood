@@ -6,18 +6,18 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\TenantFormRequest;
 use App\Http\Resources\TableResource;
-use App\Repositories\TableRepository;
+use App\Services\TableService;
 use Illuminate\Http\Request;
 
 use function GuzzleHttp\Promise\all;
 
 class TableApiController extends Controller
 {
-    protected $tableRepository;
+    protected $tableTableService;
 
-    public function __construct(TableRepository $tableRepository)
+    public function __construct(TableService $tableTableService)
     {
-        $this->tableRepository = $tableRepository;
+        $this->tableTableService = $tableTableService;
     }
 
     public function tablesByTenant(TenantFormRequest $request)
@@ -25,14 +25,14 @@ class TableApiController extends Controller
         /* if (!$request->token_company){
             return response()->json(['message' => 'Token Not Found!'], 404);
         } */
-        $categories = $this->tableRepository->getTablesByTenantUuid($request->token_company);
+        $categories = $this->tableTableService->getTablesByUuid($request->token_company);
 
         return TableResource::collection($categories);
     }
 
     public function show(TenantFormRequest $request, $identify)
     {
-        if (!$table = $this->tableRepository->getTableByIdentify($identify)){
+        if (!$table = $this->tableTableService->getTableByIdentify($identify)){
             return response()->Json(['message' => 'Table Not Found!'], 404);
         }
 

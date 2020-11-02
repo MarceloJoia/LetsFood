@@ -5,18 +5,18 @@ namespace App\Http\Controllers\Api;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\TenantFormRequest;
 use App\Http\Resources\CategoryResource;
-use App\Repositories\CategoryRepository;
+use App\Services\CategoryService;
 use Illuminate\Http\Request;
 
 use function GuzzleHttp\Promise\all;
 
 class CategoryApiController extends Controller
 {
-    protected $categoryRepository;
+    protected $categoryService;
 
-    public function __construct(CategoryRepository $categoryRepository)
+    public function __construct(CategoryService $categoryService)
     {
-        $this->categoryRepository = $categoryRepository;
+        $this->categoryService = $categoryService;
     }
 
     public function categoriesByTenant(TenantFormRequest $request)
@@ -24,14 +24,14 @@ class CategoryApiController extends Controller
         /* if (!$request->token_company){
             return response()->json(['message' => 'Token Not Found!'], 404);
         } */
-        $categories = $this->categoryRepository->getCategoriesByTenantUuid($request->token_company);
+        $categories = $this->categoryService->getCategoryByUuid($request->token_company);
 
         return CategoryResource::collection($categories);
     }
 
     public function show(TenantFormRequest $request, $urlCategory)
     {
-        if (!$category = $this->categoryRepository->getCategoryByUrl($urlCategory)){
+        if (!$category = $this->categoryService->getCategoryByUrl($urlCategory)){
             return response()->Json(['message' => 'Category Not Found!'], 404);
         }
 
