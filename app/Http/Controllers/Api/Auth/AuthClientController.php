@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Clients\StoreUpdateClient;
 use App\Http\Resources\ClientResource;
 use App\Models\Client;
 use Illuminate\Http\Request;
@@ -10,13 +11,13 @@ use Illuminate\Support\Facades\Hash;
 
 class AuthClientController extends Controller
 {
-    public function auth(Request $request)
+    public function auth(StoreUpdateClient $request)
     {
-        $request->validate([
+       /*  $request->validate([
             'email' => 'required|email',
             'password' => 'required',
             'device_name' => 'required',
-        ]);
+        ]); */
 
         $client = Client::where('email', $request->email)->first();
 
