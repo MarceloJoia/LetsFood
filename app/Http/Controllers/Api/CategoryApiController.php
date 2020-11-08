@@ -24,14 +24,14 @@ class CategoryApiController extends Controller
         /* if (!$request->token_company){
             return response()->json(['message' => 'Token Not Found!'], 404);
         } */
-        $categories = $this->categoryService->getCategoryByUuid($request->token_company);
+        $categories = $this->categoryService->getCategoriesByUuid($request->token_company);
 
         return CategoryResource::collection($categories);
     }
 
-    public function show(TenantFormRequest $request, $urlCategory)
+    public function show(TenantFormRequest $request, $identify)
     {
-        if (!$category = $this->categoryService->getCategoryByUrl($urlCategory)){
+        if (!$category = $this->categoryService->getCategoryByUuid($identify)){
             return response()->Json(['message' => 'Category Not Found!'], 404);
         }
 

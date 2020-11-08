@@ -23,17 +23,18 @@ class ProductRepository implements ProductRepositoryInterface
                     ->where('categories.tenant_id', $idTenant)  //Categories amarrado pelo tenant_id
                     ->where(function($query) use($categories) {
                         if ($categories != []) {
-                            $query->whereIn('categories.url', $categories);    // Onde a Categoria.URL esteja no $categories
+                            $query->whereIn('categories.uuid', $categories);    // Onde a Categoria.URL esteja no $categories
                         }
                     })
+                    ->select('products.*')
                     ->get();
     }
 
 
-    public function getProductByFlag(string $flag)
+    public function getProductByUuid(string $uuid)
     {
         return DB::table($this->table)
-                    ->where('products.flag', $flag)
+                    ->where('uuid', $uuid)
                     ->first();
     }
 }

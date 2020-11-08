@@ -25,8 +25,8 @@ class TableService
     /**
      * Get Table by URL
      */
-    public function getTableByIdentify(string $identify)
+    public function getTableByUuid(string $uuid)
     {
-        return $this->table->getTableByIdentify($identify);
+        return $this->table->getTableByUuid($uuid);
     }
 }

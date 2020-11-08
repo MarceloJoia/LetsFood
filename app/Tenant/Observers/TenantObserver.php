@@ -16,6 +16,11 @@ class TenantObserver
     public function creating(Model $model)
     {
         $managerTenant = app(ManagerTenant::class); //Devolve o Objeto dessa Class
-        $model->tenant_id = $managerTenant->getTenantIdentify(); //Recupera o ID do Tenant Autenticado.
+
+        $identify =$managerTenant->getTenantIdentify();
+
+        if ($identify) {
+            $model->tenant_id = $identify;
+        }
     }
 }

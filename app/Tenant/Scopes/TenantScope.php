@@ -19,9 +19,10 @@ class TenantScope implements Scope
      */
     public function apply(Builder $builder, Model $model)
     {
-        $builder->where('tenant_id',
-                                app(ManagerTenant::class) /* Cria um objeto no Tenant */
-                                ->getTenantIdentify() // Chama o Method " getTenantIdentify()"  para recupera o ID do Tenant Autenticado.
-                            );
+        $identify = app(ManagerTenant::class)->getTenantIdentify();
+
+        if ($identify) {
+            $builder->where('tenant_id', $identify);
+        }
     }
 }

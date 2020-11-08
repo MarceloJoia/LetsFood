@@ -11,9 +11,9 @@ class ManagerTenant
      * Retorna o identificador do Tenant.
      * auth()->user() retorna um objeto de Usuario
      */
-    public function getTenantIdentify(): int//Tipo de retorno é Inteiro
+    public function getTenantIdentify()
     {
-        return auth()->user()->tenant_id;
+        return auth()->check() ? auth()->user()->tenant_id : '';
     }
 
 
@@ -24,7 +24,7 @@ class ManagerTenant
      */
     public function getTenant(): Tenant //isso defina que o retorno será um objeto do Model Tenant
     {
-        return auth()->user()->tenant;
+        return auth()->check() ? auth()->user()->tenant : '';
     }
 
 

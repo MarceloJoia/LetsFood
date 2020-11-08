@@ -16,6 +16,9 @@ class CategoryObserver
     public function creating(Category $category)
     {
         $category->url = Str::kebab($category->name);
+
+        // Colocando uuid automaticamente
+        $category->uuid = Str::uuid();
     }
 
     /**

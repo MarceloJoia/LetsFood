@@ -5,14 +5,9 @@
 @section('content_header')
     <div class="row">
 
-        <div class="col-sm-9 form-group">
+        <div class="col-sm-12 form-group">
             <h1>Categoria do produto <strong>{{ $product->title }}</strong></h1>
         </div>
-
-        <div class="col-sm-3 form-group">
-            <a href="{{ route('products.categories.available', $product->id) }}" class="btn btn-success btn-block">Add Categorias</a>
-        </div>
-
     </div>
 @stop
 
@@ -22,8 +17,8 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ route('admin.index')}}">Dashboard</a></li>
-                    <li class="breadcrumb-item"><a href="{{ route('products.index') }}">Planos</a></li>
-                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('products.categories', $product->id) }}" class="active">Perfis</a></li>
+                    <li class="breadcrumb-item"><a href="{{ route('products.index') }}">Produtos</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><a href="{{ route('products.categories', $product->id) }}" class="active">Categorias</a></li>
                 </ol>
             </nav>
         </div>
@@ -52,15 +47,22 @@
             </table>
         </div>
 
-        <div class="card-footer">
+        <div class="row card-footer">
+            <div class="col-sm-3 form-group">
+                <a href="{{ route('products.index') }}" title="Voltar ao Produto" class="btn btn-primary btn-block"><i class="fas fa-undo-alt"></i> Voltar</a>
+            </div>
+            <div class="col-sm-3 form-group">
+                <a href="{{ route('products.categories.available', $product->id) }}" class="btn btn-success btn-block">Add Categorias</a>
+            </div>
+            <div class="col-sm-12 form-group">
+                @if (isset($filters))
+                    {!! $categories->appends($filters)->links() !!}
+                @else
+                    {!! $categories->links() !!}
+                @endif
 
-            @if (isset($filters))
-                {!! $categories->appends($filters)->links() !!}
-            @else
-                {!! $categories->links() !!}
-            @endif
-
-            @include('admin.includes.copyright')
+                @include('admin.includes.copyright')
+            </div>
         </div>
     </div>
 @stop
