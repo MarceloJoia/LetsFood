@@ -11,6 +11,12 @@ Route::group([
 ], function () {
     Route::get('/auth/me', 'Api\Auth\AuthClientController@me');
     Route::post('/auth/logout', 'Api\Auth\AuthClientController@logout');
+
+    Route::post('auth/v1/orders/{identifyOrder}/evaluations', 'Api\EvaluationApiController@store');
+
+    // Pedido autenticado
+    Route::get('auth/v1/my-orders', 'Api\OrderApiController@myOrders');
+    Route::post('auth/v1/orders', 'Api\OrderApiController@store');
 });
 
 
@@ -31,4 +37,10 @@ Route::group([
     Route::get('/products', 'ProductApiController@productsByTenant');
 
     Route::post('/client', 'Auth\RegisterController@store');
+
+    /**
+     * Pedidos
+     */
+    Route::post('/orders', 'OrderApiController@store');
+    Route::get('/orders/{identify}', 'OrderApiController@show');
 });
