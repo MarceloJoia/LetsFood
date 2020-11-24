@@ -126,10 +126,11 @@ Route::prefix('admin')
     route::post('plans/store','PlanController@store')->name('plans.store');
     route::get('plans/create','PlanController@create')->name('plans.create');
     route::get('plans','PlanController@index')->name('plans.index');
+
     /**
-     * BreadCrumb
+     * Home Dashboard
      */
-    route::get('/','PlanController@index')->name('admin.index');
+    route::get('/','DashboardController@home')->name('admin.index');
 });
 
 

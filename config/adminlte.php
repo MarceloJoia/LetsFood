@@ -46,7 +46,7 @@ return [
     */
 
     'logo' => '<b>Lets</b>Food',
-    'logo_img' => 'vendor/adminlte/dist/img/AdminLTELogo.png',
+    'logo_img' => 'imgs/letsfood-icon.png',
     'logo_img_class' => 'brand-image img-circle elevation-3',
     'logo_img_xl' => null,
     'logo_img_xl_class' => 'brand-image-xs',
@@ -188,7 +188,7 @@ return [
 
     'use_route_url' => false,
 
-    'dashboard_url' => 'home',
+    'dashboard_url' => 'admin',
 
     'logout_url' => 'logout',
 
@@ -232,6 +232,12 @@ return [
 
     'menu' => [
         [
+            'text' => 'Dashboard',
+            'url'  => 'admin',
+            'icon' => 'fas fa-tachometer-alt',
+            'can'  => 'tenants',
+        ],
+        [
             'text' => 'Empresa',
             'url'  => 'admin/tenants',
             'icon' => 'fas fa-building',
@@ -240,7 +246,7 @@ return [
         [
             'text' => 'Planos',
             'url'  => 'admin/plans',
-            'icon' => 'fas fa-globe-americas',
+            'icon' => 'fas fa-chart-line',
             'can'  => 'plans',
         ],
         [
@@ -278,7 +284,7 @@ return [
         [
             'text' => 'Produtos',
             'url'  => 'admin/products',
-            'icon' => 'fas fa-utensils',
+            'icon' => 'fas fa-hamburger',
             'can'  => 'products',
         ],
         [
