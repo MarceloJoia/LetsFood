@@ -1,9 +1,7 @@
 <?php
 
-/**
- * Token client
- */
-Route::post('/sanctum/token', 'Api\Auth\AuthClientController@auth');
+Route::post('/auth/register', 'Api\Auth\RegisterController@store');
+Route::post('/auth/token', 'Api\Auth\AuthClientController@auth');
 
 
 Route::group([
@@ -35,8 +33,6 @@ Route::group([
 
     Route::get('/products/{identify}', 'ProductApiController@show');
     Route::get('/products', 'ProductApiController@productsByTenant');
-
-    Route::post('/client', 'Auth\RegisterController@store');
 
     /**
      * Pedidos
