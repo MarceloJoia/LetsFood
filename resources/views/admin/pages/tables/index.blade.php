@@ -39,7 +39,7 @@
                     <tr>
                         <th>Identify</th>
                         <th>Descrição</th>
-                        <th width="70">Ação</th>
+                        <th width="120">Ação</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -52,7 +52,12 @@
                                 {{ $table->description }}
                             </td>
                             <td>
-                                <a href="{{ route('tables.show', $table->id) }}" class="btn btn-success" title="Visualizar {{ $table->identify }}" alt="Visualizar {{ $table->identify }}"><i class="fas fa-eye"></i></a>
+                                <a href="{{ route('tables.qrcode', $table->identify) }}" class="btn btn-success" target="_blank">
+                                    <i class="fas fa-qrcode"></i>
+                                </a>
+                                <a href="{{ route('tables.show', $table->id) }}" class="btn btn-success" title="Visualizar {{ $table->identify }}" alt="Visualizar {{ $table->identify }}">
+                                    <i class="fas fa-eye"></i>
+                                </a>
                             </td>
                         </tr>
                     @endforeach

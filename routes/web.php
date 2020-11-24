@@ -41,9 +41,11 @@ Route::prefix('admin')
      */
     Route::any('tenants/search', 'TenantController@search')->name('tenants.search');
     Route::resource('tenants', 'TenantController');
+
     /**
      * Routes Tables
      */
+    Route::get('tables/qrcode/{identify}', 'TableController@qrcode')->name('tables.qrcode');// QRCode
     Route::any('tables/search', 'TableController@search')->name('tables.search');
     Route::resource('tables', 'TableController');
     /**
