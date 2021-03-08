@@ -7,6 +7,5 @@ return [
     'admins' => [
         'sitejoia@hotmail.com',
         'admin@joiamarketing.com.br',
-        //'sac@picole.com.br',
     ],
 ];

@@ -54,6 +54,7 @@ class User extends Authenticatable
 
     /**
      * Get Tenant
+     * Um Tenant pode ter vários usuários e um usuários pode ter 1 Tenant
      */
     public function tenant()
     {

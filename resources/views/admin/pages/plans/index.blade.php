@@ -49,7 +49,9 @@
                             <td>R$ {{ number_format($plan->price, 2, ',', '.') }}</td>
                             <td>
                                 <a href="{{ route('plans.show', $plan->url) }}" class="btn btn-success" title="Visualizar {{ $plan->name }}" alt="Visualizar {{ $plan->name }}"><i class="fas fa-eye"></i></a>
-                                <a href="{{ route('plans.details.index', $plan->url) }}" class="btn btn-success" title="Visualizar detalhes do {{ $plan->name }}" alt="Visualizar detalhes do {{ $plan->name }}"><i class="fas fa-calendar-day"></i></a>
+
+                                <a href="{{ route('plans.details.index', $plan->url) }}" class="btn btn-success" title="Ver as opções do {{ $plan->name }}" alt="Ver as opções do {{ $plan->name }}"><i class="fas fa-calendar-day"></i></a>
+
                                 <a href="{{ route('plans.profiles', $plan->id) }}" class="btn btn-success" title="Perfil ligado ao {{ $plan->name }}" alt="Perfil ligado ao {{ $plan->name }}"><i class="fas fa-id-card-alt"></i></a>
                             </td>
                         </tr>

@@ -8,7 +8,7 @@
             <h1>Mesas</h1>
         </div>
         <div class="col-sm-3 form-group">
-            <a href="{{ route('tables.create') }}" class="btn btn-success btn-block">Cadastrar Categoria</a>
+            <a href="{{ route('tables.create') }}" class="btn btn-success btn-block">Cadastrar Mesa</a>
         </div>
         <div class="col- col-sm-6">
             <form action="{{ route('tables.search') }}" method="post">
@@ -52,7 +52,7 @@
                                 {{ $table->description }}
                             </td>
                             <td>
-                                <a href="{{ route('tables.qrcode', $table->identify) }}" class="btn btn-success" target="_blank">
+                                <a href="{{ route('tables.qrcode', $table->identify) }}" class="btn btn-success" target="_blank" title="Gerar QRCode para as mesas" alt="Gerar QRCode para as mesas">
                                     <i class="fas fa-qrcode"></i>
                                 </a>
                                 <a href="{{ route('tables.show', $table->id) }}" class="btn btn-success" title="Visualizar {{ $table->identify }}" alt="Visualizar {{ $table->identify }}">

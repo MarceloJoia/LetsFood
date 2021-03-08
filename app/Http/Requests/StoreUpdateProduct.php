@@ -31,13 +31,10 @@ class StoreUpdateProduct extends FormRequest
         $id = $this->segment(3);
 
         $rules = [
-            'title' => [
-                'required',
-                'string',
-                'min:3',
-                'max:255',
-                //"unique:products,title,{$id},id"
-                new UniqueTenant('products', $id),
+            'title' => [ 'required', 'string',
+            'min:3', 'max:255',
+            //"unique:products,title,{$id},id"
+            new UniqueTenant('products', $id),
         ],
             'price' => ['required', "regex:/^\d+(\.\d{1,2})?$/"],
             'image' => ['required','image'],

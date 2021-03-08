@@ -8,7 +8,7 @@
             <h1>Empresas</h1>
         </div>
         <div class="col-sm-3 form-group">
-            <a href="{{ route('tenants.create') }}" class="btn btn-success btn-block">Cadastrar Produto</a>
+            <a href="{{ route('tenants.create') }}" class="btn btn-success btn-block">Cadastrar Empresa</a>
         </div>
         <div class="col- col-sm-6">
             <form action="{{ route('tenants.search') }}" method="post">
@@ -40,7 +40,7 @@
                         <th width="100">Imagem</th>
                         <th>Título</th>
                         <th>Plano</th>
-                        <th width="120">Ação</th>
+                        <th width="70">Ação</th>
                     </tr>
                 </thead>
                 <tbody>

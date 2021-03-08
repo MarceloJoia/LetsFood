@@ -16,7 +16,7 @@ public function __construct(product $product)
 {
     $this->repository = $product;
 
-    $this->middleware(['can:products']);
+    $this->middleware(['can:Produtos']);
 }
 
     /**
@@ -49,7 +49,7 @@ public function __construct(product $product)
      * @param  \App\Http\Requests\StoreUpdateproduct  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreUpdateproduct $request)
+    public function store(StoreUpdateProduct $request)
     {
         $data = $request->all();
 
@@ -101,7 +101,7 @@ public function __construct(product $product)
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(StoreUpdateproduct $request, $id)
+    public function update(StoreUpdateProduct $request, $id)
     {
         if (!$product = $this->repository->find($id)){
             return redirect()->back();

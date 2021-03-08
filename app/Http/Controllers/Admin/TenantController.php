@@ -16,7 +16,7 @@ class TenantController extends Controller
     {
         $this->repository = $tenant;
 
-        $this->middleware(['can:tenants']);
+        $this->middleware(['can:Empresa']);
     }
 
     /**
