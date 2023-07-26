@@ -3,7 +3,7 @@
 @section('title', 'Dashboard')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1 class="text-primary font-weight-bold">Dashboard</h1>
 @stop
 
 @section('content')
@@ -11,7 +11,7 @@
 
         {{-- Users --}}
         <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box">
+            <div class="info-box text-primary">
                 <span class="info-box-icon bg-aqua">
                 <i class="fas fa-users"></i></span>
 
@@ -26,7 +26,7 @@
 
         {{-- Table --}}
         <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
+        <div class="info-box text-primary">
             <span class="info-box-icon bg-aqua">
             <i class="fas fa-dice-d6"></i></span>
 
@@ -41,7 +41,7 @@
 
         {{-- Categories --}}
         <div class="col-md-3 col-sm-6 col-xs-12">
-        <div class="info-box">
+        <div class="info-box text-primary">
             <span class="info-box-icon bg-aqua">
             <i class="fas fa-layer-group"></i></span>
 
@@ -56,7 +56,7 @@
 
         {{-- Procucts --}}
         <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box">
+            <div class="info-box text-primary">
                 <span class="info-box-icon bg-aqua">
                     <i class="fas fa-hamburger"></i></span>
 
@@ -72,7 +72,7 @@
         @admin ()
             {{-- Tenants --}}
             <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="info-box">
+                <div class="info-box text-primary">
                     <span class="info-box-icon bg-aqua">
                         <i class="fas fa-building"></i></span>
 
@@ -89,7 +89,7 @@
         @admin ()
         {{-- Plans --}}
         <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box">
+            <div class="info-box text-primary">
                 <span class="info-box-icon bg-aqua">
                     <i class="fas fa-chart-line"></i></span>
 
@@ -106,7 +106,7 @@
         @admin ()
         {{-- Roles --}}
         <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box">
+            <div class="info-box text-primary">
                 <span class="info-box-icon bg-aqua">
                     <i class="fas fa-user-tag"></i></span>
 
@@ -123,7 +123,7 @@
         @admin ()
         {{-- Profiles --}}
         <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box">
+            <div class="info-box text-primary">
                 <span class="info-box-icon bg-aqua">
                     <i class="fas fa-id-card-alt"></i></span>
 
@@ -140,7 +140,7 @@
         @admin ()
         {{-- Permissions --}}
         <div class="col-md-3 col-sm-6 col-xs-12">
-            <div class="info-box">
+            <div class="info-box text-primary">
                 <span class="info-box-icon bg-aqua">
                     <i class="fas fa-lock"></i></span>
 

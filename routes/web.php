@@ -149,8 +149,3 @@ Route::namespace('Site')
  * Auth Routes
  */
 Auth::routes();
-
-/**
- * Abilita registro manual
- */
-//Auth::routes(['register'=> false ]);

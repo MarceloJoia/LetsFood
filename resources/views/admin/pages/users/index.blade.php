@@ -5,7 +5,7 @@
 @section('content_header')
     <div class="row">
         <div class="col-sm-9 form-group">
-            <h1>Usuários</h1>
+            <h1 class="text-primary font-weight-bold">Usuários</h1>
         </div>
         <div class="col-sm-3 form-group">
             <a href="{{ route('users.create') }}" class="btn btn-success btn-block" title="Cadastrar novo usuário" alt="Cadastrar novo usuário">Cadastrar Usuário</a>

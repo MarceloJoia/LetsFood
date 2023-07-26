@@ -3,7 +3,7 @@
 @section('title', 'Cadastrar novo perfil')
 
 @section('content_header')
-    <h1>Cadastrar novo perfil</h1>
+    <h1 class="text-primary font-weight-bold">Cadastrar novo perfil</h1>
 @stop
 
 @section('content')

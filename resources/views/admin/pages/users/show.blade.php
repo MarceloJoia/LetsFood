@@ -3,7 +3,7 @@
 @section('title', "Detalhes do usuário {$user->name}")
 
 @section('content_header')
-    <h1>{{ $user->name }}</h1>
+    <h1 class="text-primary font-weight-bold">{{ $user->name }}</h1>
 @stop
 
 @section('content')

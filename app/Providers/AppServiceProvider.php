@@ -20,7 +20,6 @@ use App\Observers\{
 };
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use PhpParser\Node\Stmt\Return_;
 
 class AppServiceProvider extends ServiceProvider
 {

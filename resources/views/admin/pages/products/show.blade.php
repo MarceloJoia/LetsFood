@@ -3,7 +3,7 @@
 @section('title', "Detalhes da Produto {$product->title}")
 
 @section('content_header')
-    <h1>{{ $product->title }}</h1>
+    <h1 class="text-primary font-weight-bold">{{ $product->title }}</h1>
 @stop
 
 @section('content')

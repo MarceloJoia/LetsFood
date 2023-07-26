@@ -5,7 +5,7 @@
 @section('content_header')
     <div class="row">
         <div class="col-sm-9 form-group">
-            <h1>Categorias</h1>
+            <h1 class="text-primary font-weight-bold">Categorias</h1>
         </div>
         <div class="col-sm-3 form-group">
             <a href="{{ route('categories.create') }}" class="btn btn-success btn-block">Cadastrar Categoria</a>

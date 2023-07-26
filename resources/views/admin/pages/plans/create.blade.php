@@ -3,7 +3,7 @@
 @section('title', 'Planos')
 
 @section('content_header')
-    <h1>Cadastrar um no plano</h1>
+    <h1 class="text-primary font-weight-bold">Cadastrar um no plano</h1>
 @stop
 
 @section('content')

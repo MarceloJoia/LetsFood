@@ -3,7 +3,7 @@
 @section('title', "Detalhes do plano {$plan->name}")
 
 @section('content_header')
-    <h1>{{ $plan->name }}</h1>
+    <h1 class="text-primary font-weight-bold">{{ $plan->name }}</h1>
 @stop
 
 @section('content')

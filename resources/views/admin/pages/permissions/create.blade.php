@@ -3,7 +3,7 @@
 @section('title', 'Cadastrar novo permissão')
 
 @section('content_header')
-    <h1>Cadastrar novo permissão</h1>
+<h1 class="text-primary font-weight-bold">Cadastrar novo permissão</h1>
 @stop
 
 @section('content')

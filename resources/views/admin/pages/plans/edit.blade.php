@@ -3,7 +3,7 @@
 @section('title', "Editar {$plan->name}")
 
 @section('content_header')
-    <h1>Editar {{ $plan->name }}</h1>
+    <h1 class="text-primary font-weight-bold">Editar {{ $plan->name }}</h1>
 @stop
 
 @section('content')

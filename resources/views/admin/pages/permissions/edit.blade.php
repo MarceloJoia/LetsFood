@@ -3,7 +3,7 @@
 @section('title', "Detalhes da permissão: {$permission->name}")
 
 @section('content_header')
-    <h1>Detalhes da permissão: {{$permission->name}}</h1>
+<h1 class="text-primary font-weight-bold">Detalhes da permissão: {{$permission->name}}</h1>
 @stop
 
 @section('content')

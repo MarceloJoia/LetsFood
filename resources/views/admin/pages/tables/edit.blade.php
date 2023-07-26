@@ -3,7 +3,7 @@
 @section('title', "Editar a mesa {$table->identify}")
 
 @section('content_header')
-    <h1>Editar a mesa {{ $table->identify }}</h1>
+    <h1 class="text-primary font-weight-bold">Editar a mesa {{ $table->identify }}</h1>
 @stop
 
 @section('content')
