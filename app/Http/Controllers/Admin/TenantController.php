@@ -145,13 +145,13 @@ class TenantController extends Controller
         $filters = $request->only('filter');
 
         $tenants = $this->repository
-            ->where( function($query) use($request) {
-                if($request->filter){
+            ->where(function ($query) use ($request) {
+                if ($request->filter) {
                     $query->where('name', 'LIKE', "%{$request->filter}%");
                 }
-        })
-        ->latest()
-        ->paginate();
+            })
+            ->latest()
+            ->paginate();
 
         return view('admin.pages.tenants.index', [
             'tenants' => $tenants,
