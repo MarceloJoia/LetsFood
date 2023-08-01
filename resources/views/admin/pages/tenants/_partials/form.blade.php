@@ -27,6 +27,28 @@
 </div>
 <hr>
 <h3>Assinatura</h3>
+
+<div class="row">
+    <div class="col-6">
+        <div class="form-group">
+            <label>* Plano:</label>
+            <select  class="form-control" name="name">
+                <option value="">Escolha um plano</option>
+                <option value="">Plano 1</option>
+                <option value="">Plano 2</option>
+                <option value="">Plano 3</option>
+            </select>
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="form-group">
+            <label>Mensalidade:</label>
+            <h4>R$ 255,99</h4>
+        </div>
+    </div>
+</div>
+
+
 <div class="form-group">
     <label>Data Assinatura (início):</label>
     <input type="date" name="subscription" class="form-control" placeholder="Data Assinatura (início):" value="{{ $tenant->subscription ?? old('subscription') }}">
